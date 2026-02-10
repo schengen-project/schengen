@@ -1,0 +1,9 @@
+[package]
+name = "schengen"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+thiserror = "2.0"
+tokio = { version = "1", features = ["net", "time", "rt", "io-util", "sync", "macros"] }
+log = "0.4"
