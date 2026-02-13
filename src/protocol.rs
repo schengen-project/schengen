@@ -1253,7 +1253,7 @@ impl ProtocolMessage for MessageSetOptions {
         }
 
         let num_elements = (length - 1) as usize;
-        if !num_elements.is_multiple_of(2) {
+        if num_elements % 2 != 0 {
             return Err(ProtocolError::InvalidData(
                 "DSOP must have an even number of elements (key-value pairs)".to_string(),
             ));
