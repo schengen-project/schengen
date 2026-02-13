@@ -145,9 +145,9 @@ use tokio::net::{TcpListener, TcpStream};
 use tokio::sync::RwLock;
 
 use crate::protocol::{
-    parse_message_with_length, Message, MessageHelloBarrier, MessageInfoAcknowledgment,
-    MessageKeepAlive, MessageLegacySynergy, MessageQueryInfo, MessageResetOptions,
-    MessageSetOptions, ProtocolError,
+    Message, MessageHelloBarrier, MessageInfoAcknowledgment, MessageKeepAlive,
+    MessageLegacySynergy, MessageQueryInfo, MessageResetOptions, MessageSetOptions, ProtocolError,
+    parse_message_with_length,
 };
 
 const DEFAULT_PORT: u16 = 24801;
@@ -395,7 +395,9 @@ pub enum ServerError {
         existing_client: String,
     },
 
-    #[error("Position {position:?} relative to client '{relative_to}' is already occupied by client '{existing_client}'")]
+    #[error(
+        "Position {position:?} relative to client '{relative_to}' is already occupied by client '{existing_client}'"
+    )]
     RelativePositionOccupied {
         position: Position,
         relative_to: String,
@@ -1085,7 +1087,7 @@ impl Server {
     async fn keepalive_sender(
         connected_clients: Arc<RwLock<HashMap<ClientId, Arc<RwLock<ConnectedClient>>>>>,
     ) {
-        use tokio::time::{interval, Duration};
+        use tokio::time::{Duration, interval};
 
         let mut interval = interval(Duration::from_secs(3));
 
