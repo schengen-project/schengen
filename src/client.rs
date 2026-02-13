@@ -49,8 +49,8 @@ use tokio::net::TcpStream;
 use tokio::time::sleep;
 
 use crate::protocol::{
-    parse_message_with_length, Message, MessageClientInfo, MessageHelloBarrier, MessageKeepAlive,
-    ProtocolError,
+    Message, MessageClientInfo, MessageHelloBarrier, MessageKeepAlive, ProtocolError,
+    parse_message_with_length,
 };
 
 const DEFAULT_PORT: u16 = 24801;
