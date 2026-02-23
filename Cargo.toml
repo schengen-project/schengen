@@ -3,6 +3,9 @@ name = "schengen"
 version = "0.2.0"
 edition = "2024"
 rust-version = "1.85"
+license = "GPL-3.0-or-later" 
+description = "Helper library for building Synergy-compatible clients and servers"
+homepage = "https://github.com/schengen-project/schengen"
 
 [dependencies]
 thiserror = "2.0"
